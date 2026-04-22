@@ -1,0 +1,385 @@
+/* ============================================================
+   style.css — The Overlooked: A Social Issues Catalog
+   Built on top of the SEA starter CSS
+   ============================================================ */
+
+/* -- Reset (from starter) -- */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'DM Sans', Helvetica, sans-serif;
+  background-color: #f5f0e8;
+  color: #111;
+}
+
+/* ── Dark header ── */
+.main-header {
+  background-color: #111111;
+  padding: 40px 32px 32px;
+  border-bottom: 4px solid #c0392b;
+}
+
+.eyebrow {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #e74c3c;
+  margin-bottom: 12px;
+}
+
+/* .title is the required class name from the starter */
+.title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 3.5em;
+  font-weight: 700;
+  color: #f5f0e8;
+  margin: 0 0 16px 0;
+  line-height: 1.1;
+  text-align: left;
+}
+
+.title em {
+  font-style: italic;
+  color: #e74c3c;
+}
+
+.subtitle {
+  font-size: 15px;
+  font-weight: 300;
+  color: #b5aea0;
+  max-width: 500px;
+  line-height: 1.6;
+  margin: 0;
+  text-align: left;
+}
+
+/* ── Controls bar ── */
+.controls-bar {
+  background-color: #ece6d4;
+  border-bottom: 2px solid #111;
+  padding: 16px 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.controls-bar input[type="text"] {
+  padding: 8px 14px;
+  font-size: 14px;
+  font-family: 'DM Sans', Helvetica, sans-serif;
+  border: 1px solid #d4cbb8;
+  border-radius: 3px;
+  background: white;
+  color: #111;
+  width: 200px;
+}
+
+.controls-bar select {
+  padding: 8px 12px;
+  font-size: 14px;
+  font-family: 'DM Sans', Helvetica, sans-serif;
+  border: 1px solid #d4cbb8;
+  border-radius: 3px;
+  background: white;
+  color: #111;
+  cursor: pointer;
+}
+
+#results-count {
+  font-size: 13px;
+  color: #7a7060;
+  margin: 0;
+}
+
+/* ── Filter buttons ── */
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* Override starter's button style for just the filter buttons */
+.filter-btn {
+  background: white;
+  border: 1px solid #d4cbb8;
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-family: 'DM Sans', Helvetica, sans-serif;
+  font-size: 13px;
+  color: #7a7060;
+  cursor: pointer;
+  height: auto;
+  margin: 0;
+}
+
+.filter-btn:hover {
+  background: #111;
+  color: white;
+  border-color: #111;
+}
+
+.filter-btn.active {
+  background: #111;
+  color: white;
+  border-color: #111;
+}
+
+/* ── Card container (extends starter #card-container) ── */
+#card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 28px 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ── Individual card (extends starter .card) ── */
+.card {
+  background: white;
+  border: 1px solid #d4cbb8;
+  border-radius: 3px;
+  width: auto;
+  margin: 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+/* ── Card content (extends starter .card-content) ── */
+.card-content {
+  padding: 20px;
+  font-family: 'DM Sans', Helvetica, sans-serif;
+  color: #7a7060;
+}
+
+/* Top row: category badge + trash icon */
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* Colored category badge */
+.card-category {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 100px;
+  color: white;
+}
+
+/* Each category gets its own color */
+.cat-Healthcare       { background: #1a6b4a; }
+.cat-Housing          { background: #1a4a7a; }
+.cat-Criminal-Justice { background: #7a1a1a; }
+.cat-Education        { background: #6b4a1a; }
+.cat-Environment      { background: #2d6b1a; }
+.cat-Economic-Justice { background: #4a1a7a; }
+.cat-Civil-Rights     { background: #1a5a6b; }
+
+/* Trash icon button — sits in the top-right of each card */
+.trash-btn {
+  background: none;
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+  color: #bbb;
+  padding: 0;
+  height: auto;
+  margin: 0;
+  line-height: 1;
+  transition: color 0.15s;
+}
+
+.trash-btn:hover {
+  color: #c0392b;
+}
+
+/* Card title — the <h2> tag */
+.card-content h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: #111;
+  margin: 0 0 5px 0;
+  line-height: 1.3;
+}
+
+/* Community label */
+.card-community {
+  font-size: 11px;
+  font-weight: 500;
+  color: #7a7060;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 0 10px 0;
+}
+
+/* Description text */
+.card-desc {
+  font-size: 13px;
+  color: #444;
+  line-height: 1.6;
+  margin: 0 0 14px 0;
+}
+
+/* Severity row */
+.severity-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.severity-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #7a7060;
+}
+
+.severity-dots {
+  display: flex;
+  gap: 4px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #d4cbb8;
+}
+
+.dot.filled {
+  background: #c0392b;
+}
+
+/* Tags list — replaces starter's bullet <ul> */
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.card-tags li {
+  font-size: 11px;
+  color: #7a7060;
+  background: #f5f0e8;
+  border: 1px solid #d4cbb8;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+/* ── Add Issue Section ── */
+.add-section {
+  max-width: 600px;
+  margin: 0 auto 40px auto;
+  padding: 0 32px;
+}
+
+.add-section h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 6px;
+}
+
+.add-section p {
+  font-size: 14px;
+  color: #7a7060;
+  margin: 0 0 16px 0;
+}
+
+.add-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.add-form input[type="text"],
+.add-form select,
+.add-form textarea {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-family: 'DM Sans', Helvetica, sans-serif;
+  border: 1px solid #d4cbb8;
+  border-radius: 3px;
+  background: white;
+  color: #111;
+  box-sizing: border-box;
+}
+
+.add-form textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+/* Override default button style just for the form submit button */
+.add-form button {
+  background: #111;
+  border: none;
+  height: 42px;
+  padding: 0 20px;
+  border-radius: 3px;
+  color: white;
+  font-size: 15px;
+  font-family: 'DM Sans', Helvetica, sans-serif;
+  cursor: pointer;
+  margin: 0;
+  align-self: flex-start;
+}
+
+.add-form button:hover {
+  background: #333;
+}
+
+/* ── Footer ── */
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #111;
+  padding: 20px;
+  color: #7a7060;
+  font-size: 13px;
+}
+
+.footer p {
+  margin: 0;
+}
+
+/* ── Default button style (from starter) ── */
+button {
+  text-align: center;
+  background-color: #666;
+  border: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 40px;
+  border-radius: 10px;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  margin: 5px;
+}
