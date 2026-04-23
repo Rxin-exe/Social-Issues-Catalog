@@ -234,6 +234,7 @@ function editCardContent(card, issue, index) {
 
   const cardCategory = card.querySelector(".card-category");
   cardCategory.textContent = issue.category;
+  cardCategory.className = "card-category";
 
   const categoryCLass = "cat-" + issue.category.replace(/ /g, "-");
   cardCategory.classList.add(categoryCLass);
@@ -302,14 +303,15 @@ function filterCards(){
 
 
 
-    if (sorting === "severity") {
-      matches.sort(function(a, b) { return b.severity - a.severity; });
-    } else if (sorting === "az") {
-      matches.sort(function(a, b) { return a.title.localeCompare(b.title); });
-    }
 
 
   }
+  if (sorting === "severity") {
+    matches.sort(function(a, b) { return b.severity - a.severity; });
+  } else if (sorting === "az") {
+    matches.sort(function(a, b) { return a.title.localeCompare(b.title); });
+  }
+  
   showCards(matches)
 }
 
