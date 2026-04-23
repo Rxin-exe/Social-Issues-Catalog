@@ -280,6 +280,9 @@ function filterCards(){
   const searchInput = document.getElementById("search-input");
   const input = searchInput.value.toLowerCase();
 
+  const sortSelect = document.getElementById("sort-select");
+  const sorting = sortSelect.value;
+
   const matches = [];
 
   for (let i = 0 ; i < issues.length ; i++){
@@ -296,6 +299,15 @@ function filterCards(){
     ){
       matches.push(issues[i]);
     }
+
+
+
+    if (sorting === "severity") {
+      matches.sort(function(a, b) { return b.severity - a.severity; });
+    } else if (sorting === "az") {
+      matches.sort(function(a, b) { return a.title.localeCompare(b.title); });
+    }
+
 
   }
   showCards(matches)
